@@ -2,11 +2,9 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { relayStylePagination } from '@apollo/client/utilities'
+import { apolloClient } from 'lib/graphql'
 
-const client = new ApolloClient({
-  uri: 'https://tutorial.saleor.cloud/graphql/',
-  cache: new InMemoryCache()
-})
 export default function App({ Component, pageProps }: AppProps) {
-  return <ApolloProvider client={client}><Component {...pageProps} /></ApolloProvider>
+  return <ApolloProvider client={apolloClient}><Component {...pageProps} /></ApolloProvider>
 }
